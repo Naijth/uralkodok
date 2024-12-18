@@ -28,9 +28,12 @@ th3.innerHTML = "Évszám"; //sets the text of th3 to "Évszám"
 
 const tbody = document.createElement('tbody'); //creates the table body element in the const tbody variable
 table.appendChild(tbody); //appends tbody to the table
+/**
+ * Accidentally apppended to thead
+ */
 
 const tr2 = document.createElement('tr'); //creates a row in the const tr2 variable
-thead.appendChild(tr2); //appends tr2 to thead
+tbody.appendChild(tr2); //appends tr2 to tbody
 const td1 = document.createElement('td'); //creates a table cell in the const td1 variable
 tr2.appendChild(td1); //appends td1 to tr2
 td1.rowSpan = 2; //sets td1 to span 2 rows
@@ -43,7 +46,7 @@ tr2.appendChild(td3); //appends td3 to tr2
 td3.innerHTML = "1000"; //sets the text of td3 to "1000"
 
 const tr3 = document.createElement('tr'); //creates a row in the const tr3 variable
-thead.appendChild(tr3); //appends tr3 to thead
+tbody.appendChild(tr3); //appends tr3 to tbody
 const td4 = document.createElement('td'); //creates a table cell in the const td4 variable
 tr3.appendChild(td4); //appends td4 to tr3
 td4.innerHTML = "Pannonhalmi apátság megalapítása"; //sets the text of td4 to "Pannonhalmi apátság megalapítása"
@@ -52,7 +55,7 @@ tr3.appendChild(td5); //appends td5 to tr3
 td5.innerHTML = "1001"; //sets the text of td5 to "1001"
 
 const tr4 = document.createElement('tr'); //creates a row in the const tr4 variable
-thead.appendChild(tr4); //appends tr4 to thead
+tbody.appendChild(tr4); //appends tr4 to tbody
 const td6 = document.createElement('td'); //creates a table cell in the const td6 variable
 tr4.appendChild(td6); //appends td6 to tr4
 td6.innerHTML = "IV. Béla"; //sets the text of td6 to "IV. Béla"
@@ -64,7 +67,7 @@ tr4.appendChild(td8); //appends td8 to tr4
 td8.innerHTML = "1241-1242"; //sets the text of td8 to "1241-1242"
 
 const tr5 = document.createElement('tr'); //creates a row in the const tr5 variable
-thead.appendChild(tr5); //appends tr5 to thead
+tbody.appendChild(tr5); //appends tr5 to tbody
 const td9 = document.createElement('td'); //creates a table cell in the const td9 variable
 tr5.appendChild(td9); //appends td9 to tr5
 td9.rowSpan = 2; //sets td9 to span 2 rows
@@ -77,7 +80,7 @@ tr5.appendChild(td11); //appends td11 to tr5
 td11.innerHTML = "1485"; //sets the text of td11 to "1485"
 
 const tr6 = document.createElement('tr'); //creates a row in the const tr6 variable
-thead.appendChild(tr6); //appends tr6 to thead
+tbody.appendChild(tr6); //appends tr6 to tbody
 const td12 = document.createElement('td'); //creates a table cell in the const td12 variable
 tr6.appendChild(td12); //appends td12 to tr6
 td12.innerHTML = "Kenyérmezei csata"; //sets the text of td12 to "Kenyérmezei csata"
@@ -85,24 +88,24 @@ const td13 = document.createElement('td'); //creates a table cell in the const t
 tr6.appendChild(td13); //appends td13 to tr6
 td13.innerHTML = "1479"; //sets the text of td13 to "1479"
 
-const tr8 = document.createElement('tr'); //creates a row in the const tr8 variable
-thead.appendChild(tr8); //appends tr8 to thead
+const tr7 = document.createElement('tr'); //creates a row in the const tr7 variable
+tbody.appendChild(tr7); //appends tr7 to tbody
 const td14 = document.createElement('td'); //creates a table cell in the const td14 variable
-tr8.appendChild(td14); //appends td14 to tr8
+tr7.appendChild(td14); //appends td14 to tr7
 td14.rowSpan = 2; //sets td14 to span 2 rows
 td14.innerHTML = "II. Rákóczi Ferenc"; //sets the text of td14 to "II. Rákóczi Ferenc"
 const td15 = document.createElement('td'); //creates a table cell in the const td15 variable
-tr8.appendChild(td15); //appends td15 to tr8
+tr7.appendChild(td15); //appends td15 to tr7
 td15.innerHTML = "A szabadságharc kezdete"; //sets the text of td15 to "A szabadságharc kezdete"
 const td16 = document.createElement('td'); //creates a table cell in the const td16 variable
-tr8.appendChild(td16); //appends td16 to tr8
+tr7.appendChild(td16); //appends td16 to tr7
 td16.innerHTML = "1703"; //sets the text of td16 to "1703"
 
-const tr9 = document.createElement('tr'); //creates a row in the const tr9 variable
-thead.appendChild(tr9); //appends tr9 to thead
+const tr8 = document.createElement('tr'); //creates a row in the const tr8 variable
+tbody.appendChild(tr8); //appends tr8 to tbody
 const td17 = document.createElement('td'); //creates a table cell in the const td17 variable
-tr9.appendChild(td17); //appends td17 to tr9
+tr8.appendChild(td17); //appends td17 to tr8
 td17.innerHTML = "A szabadságharc vége"; //sets the text of td17 to "A szabadságharc vége"
 const td19 = document.createElement('td'); //creates a table cell in the const td19 variable
-tr9.appendChild(td19); //appends td19 to tr9
+tr8.appendChild(td19); //appends td19 to tr8
 td19.innerHTML = "1711"; //sets the text of td19 to "1711"
