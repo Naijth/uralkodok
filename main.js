@@ -1,7 +1,7 @@
-const table = document.createElement('table'); //creates the table element in the const table variable
+const table = document.createElement('table'); //creates the table in the const table variable
 document.body.appendChild(table); //appends said table to the body
 
-const colgroup = document.createElement('colgroup'); //creates a column group in the const colgroup variable
+const colgroup = document.createElement('colgroup'); //creates a colugroup in the const colgroup variable
 table.appendChild(colgroup); //appends colgroup to the previously created table
 const col1 = document.createElement('col'); //creates a column in the const col1 variable
 colgroup.appendChild(col1); //appends col1 to colgroup
