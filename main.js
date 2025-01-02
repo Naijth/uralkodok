@@ -74,7 +74,6 @@ const tbody = document.createElement('tbody'); // creates the table body in the 
 table.appendChild(tbody); // appends tbody to the table
 
 for (let i = 1; i < array.length; i += 2){ // the cycle goes through the array 2 at a time
-    j++
     const tableLine = document.createElement('tr'); // creates a variable named tableLine
     tbody.appendChild(tableLine); // appends tableLine to tbody
     const td1 = document.createElement('td'); // creates td1
