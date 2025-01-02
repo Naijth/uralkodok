@@ -4,22 +4,12 @@ const array = [
         esemeny: "Koronázás", // this is the label for the event column
         evszam: "Évszám" // this is the label for the year column
     },
-    { 
-    uralkodo: "Uralkodó", // this is the label for the ruler column
-    esemeny: "Koronázás", // this is the label for the event column
-    evszam: "Évszám" // this is the label for the year column
-    },
     { // creates the second element of the array
         uralkodo: "I. István", // the ruler's name
         esemeny: "Koronázás", // the event name
         evszam: "1000" // the year of the event
     },
     { // creates the third element of the array
-        uralkodo: "I. István", // the ruler's name
-        esemeny: "Koronázás", // the event name
-        evszam: "1000" // the year of the event
-    },
-    {
         esemeny: "Pannonhalmi apátság megalapítása", // the event name
         evszam: "1001" // the year of the event
     },
@@ -42,7 +32,7 @@ const array = [
         esemeny: "A szabadságharc kezdete", // the event name
         evszam: "1703" // the year of the event
     },
-    { // creates the eigth element of the array
+    { // creates the eighth element of the array
         esemeny: "A szabadságharc vége", // the event name
         evszam: "1711" // the year of the event
     }
