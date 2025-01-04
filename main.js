@@ -73,7 +73,7 @@ th3.innerHTML = array[0].evszam; // sets the text of th3 to the variable evszam'
 const tbody = document.createElement('tbody'); // creates the table body in the const tbody variable
 table.appendChild(tbody); // appends tbody to the table
 
-for (let i = 1; i < array.length; i += 2){ // the cycle goes through the array 2 at a time
+for (let i = 1; i < array.length; i++){ // the cycle goes through the array 2 at a time
     const tableLine = document.createElement('tr'); // creates a variable named tableLine
     tbody.appendChild(tableLine); // appends tableLine to tbody
     const td1 = document.createElement('td'); // creates td1
