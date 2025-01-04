@@ -38,6 +38,8 @@ const array = [
     }
 ]
 
+const form = document.getElementById('form'); // this puts the thing that has the 'form' id into this variable
+
 // create and append the table to the document
 const table = document.createElement('table'); // creates the table in the const table variable
 document.body.appendChild(table); // appends said table to the body
@@ -68,10 +70,10 @@ th2.innerHTML = array[0].esemeny; // sets the text of th2 to the variable esemen
 const th3 = document.createElement('th'); // creates a table header cell in the const th3 variable
 tr1.appendChild(th3); // appends th3 to tr1
 th3.innerHTML = array[0].evszam; // sets the text of th3 to the variable evszam's content
+const tbody = document.createElement('tbody'); // creates the table body in the const tbody variable
+table.appendChild(tbody); // appends tbody to the table
 
 function renderMenu(){ //this is the function
-    const tbody = document.createElement('tbody'); // creates the table body in the const tbody variable
-    table.appendChild(tbody); // appends tbody to the table
     for (let i = 1; i < array.length; i += 2){ // the cycle goes through the array 2 at a time
         const tableLine = document.createElement('tr'); // creates a variable named tableLine
         tbody.appendChild(tableLine); // appends tableLine to tbody
@@ -84,7 +86,7 @@ function renderMenu(){ //this is the function
         const td3 = document.createElement('td'); // creates td1
         tableLine.appendChild(td3); // appends td1 to tableLine
         td3.innerHTML = array[i].evszam; //changes td3's text to the evszam located at i in the array
-        if (array[i + 1].uralkodo == undefined){ // checks if i + 1 has anything even related to an uralkodo property
+        if (array[i + 1] != undefined && array[i + 1].uralkodo == undefined){ // checks if i + 1 has anything even related to an uralkodo property OR IF IT EVEN EXISTS!!!!!!!!!!!!
             td1.rowSpan = 2; // sets the rowspan of 
             const tableLine2 = document.createElement('tr'); // creates tableLine2
             tbody.appendChild(tableLine2); // appends tableLine2 to tbody
@@ -99,5 +101,35 @@ function renderMenu(){ //this is the function
         };
     };
 };
-
 renderMenu(); //this calls said function
+
+form.addEventListener('submit', function(e){
+    e.preventDefault(); // this prevents the site from running it's default function upon pressing the shiny button
+    const urNevElement = document.getElementById('uralkodo_nev') // this puts the htmlElement with the corresponding id into this variable
+    const esemeny1Element = document.getElementById('esemeny1') // this puts the htmlElement with the corresponding id into this variable
+    const evszam1Element = document.getElementById('evszam1') // this puts the htmlElement with the corresponding id into this variable
+    const esemeny2Element = document.getElementById('esemeny2') // this puts the htmlElement with the corresponding id into this variable
+    const evszam2Element = document.getElementById('evszam2') // this puts the htmlElement with the corresponding id into this variable
+
+    const urNevValue = urNevElement.value; // this puts the value of the element into this variable
+    const esemeny1value = esemeny1Element.value; // this puts the value of the element into this variable
+    const evszam1Value = evszam1Element.value; // this puts the value of the element into this variable
+    const esemeny2value = esemeny2Element.value == "" ? undefined : esemeny2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
+    const evszam2Value = evszam2Element.value == "" ? undefined : evszam2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
+
+    const newElement = { // we make new element
+        uralkodo: urNevValue, // the new element's value here becometh the called variable
+        esemeny: esemeny1value, // the new element's value here becometh the called variable
+        evszam: evszam1Value // the new element's value here becometh the called variable
+    }
+    array.push(newElement); // we push this to the array
+    if (esemeny2value != undefined || evszam2Value != undefined) {
+        const newElement2 = { // we make new element
+            esemeny: esemeny2value, // the new element's value here becometh the called variable
+            evszam: evszam2Value // the new element's value here becometh the called variable
+        }
+        array.push(newElement2); // we push this to the array
+    }
+    tbody.innerHTML = ''; // we delete the contents of the previous tbodeehhh
+    renderMenu() // this re-renders the table
+})
