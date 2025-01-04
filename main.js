@@ -85,17 +85,4 @@ for (let i = 1; i < array.length; i += 2){ // the cycle goes through the array 2
     const td3 = document.createElement('td'); // creates td1
     tableLine.appendChild(td3); // appends td1 to tableLine
     td3.innerHTML = array[i].evszam; //changes td3's text to the evszam located at i in the array
-    if (array[i + 1].uralkodo == undefined){ // checks if i + 1 has anything even related to an uralkodo property
-        td1.rowSpan = 2; // sets the rowspan of 
-        const tableLine2 = document.createElement('tr'); // creates tableLine2
-        tbody.appendChild(tableLine2); // appends tableLine2 to tbody
-        const td4 = document.createElement('td'); // creates td4
-        tableLine2.appendChild(td4); // appends td4 to tableLine
-        td4.innerHTML = array[i + 1].esemeny; //changes td4's text to the esemeny located at i + 1 in the array
-        const td5 = document.createElement('td'); // creates td5
-        tableLine2.appendChild(td5); // appends td5 to tableLine
-        td5.innerHTML = array[i + 1].evszam; //changes td4's text to the evszam located at i + 1 in the array
-    } else{
-        i--; // This beautiful babygirl is my favourite. You see this janky bullshit here reduces i by 1 so when it jumps two it suddenly is jumping to where it was originally intended to jump
-    };
 };
