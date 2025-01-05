@@ -126,41 +126,41 @@ form.addEventListener('submit', function(e){
     const evszam2Value = evszam2Element.value == "" ? undefined : evszam2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
 
     if (urNevValue == ''){ // checks if the variable is empty
-        const parent = urNevElement.parentElement;
-        const error = parent.querySelector('.error');
-        if (error != undefined){
-            error.innerHTML = 'Ez a mező kötelező!';
+        const parent = urNevElement.parentElement; // puts the parent element into the variable
+        const error = parent.querySelector('.error'); // we find the first thing with the error group and put it in the variable
+        if (error != undefined){ // if said div is empty
+            error.innerHTML = 'Ez a mező kötelező!'; // we put this text in it
         }
         valid = false; // sets the boolean to false
     }
     if (esemeny1Value == ''){ // checks if the variable is empty
-        const parent = esemeny1Element.parentElement;
-        const error = parent.querySelector('.error');
-        if (error != undefined){
-            error.innerHTML = 'Ez a mező kötelező!';
+        const parent = esemeny1Element.parentElement; // puts the parent element into the variable
+        const error = parent.querySelector('.error'); // we find the first thing with the error group and put it in the variable
+        if (error != undefined){ // if said div is empty
+            error.innerHTML = 'Ez a mező kötelező!'; // we put this text in it
         }
         valid = false; // sets the boolean to false
     }
     if (evszam1Value == ''){ // checks if the variable is empty
-        const parent = evszam1Element.parentElement;
-        const error = parent.querySelector('.error');
-        if (error != undefined){
-            error.innerHTML = 'Ez a mező kötelező!';
+        const parent = evszam1Element.parentElement; // puts the parent element into the variable
+        const error = parent.querySelector('.error'); // we find the first thing with the error group and put it in the variable
+        if (error != undefined){ // if said div is empty
+            error.innerHTML = 'Ez a mező kötelező!'; // we put this text in it
         }
         valid = false; // sets the boolean to false
     }
     if (esemeny2Value != undefined && evszam2Value == undefined || esemeny2Value == undefined && evszam2Value != undefined){
-        const parentEsemeny = esemeny2Element.parentElement;
-        const parentEvszam = evszam2Element.parentElement;
-        const errorEsemeny = parentEsemeny.querySelector('.error');
-        const errorEvszam = parentEvszam.querySelector('.error');
-        if (errorEsemeny != undefined){
-            errorEsemeny.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!';
+        const parentEsemeny = esemeny2Element.parentElement; // puts the parent element into the variable
+        const parentEvszam = evszam2Element.parentElement; // puts the parent element into the variable
+        const errorEsemeny = parentEsemeny.querySelector('.error'); // we find the first thing with the error group and put it in the variable
+        const errorEvszam = parentEvszam.querySelector('.error'); // we find the first thing with the error group and put it in the variable
+        if (errorEsemeny != undefined){ // if said div is empty
+            errorEsemeny.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!'; // we put this text in it
         }
-        if (errorEvszam != undefined){
-            errorEvszam.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!';
+        if (errorEvszam != undefined){ // if said div is empty
+            errorEvszam.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!'; // we put this text in it
         }
-        valid = false;
+        valid = false; // sets the boolean to false
     }
     if (valid){
         const newElement = { // we make new element
