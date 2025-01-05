@@ -111,25 +111,74 @@ form.addEventListener('submit', function(e){
     const esemeny2Element = document.getElementById('esemeny2') // this puts the htmlElement with the corresponding id into this variable
     const evszam2Element = document.getElementById('evszam2') // this puts the htmlElement with the corresponding id into this variable
 
+    const thisForm = e.currentTarget; // the current target is our form, this puts it into this variable
+    const elementsWithError = thisForm.querySelectorAll('.error') // this "selects" all elements with the error css group
+    for (const error of elementsWithError){ // this goes through each of them one by one
+        error.innerHTML = ''; // this sets their content to a blank/deletes it
+    }
+
+    let valid = true; // this creates the valid boolean
+
     const urNevValue = urNevElement.value; // this puts the value of the element into this variable
-    const esemeny1value = esemeny1Element.value; // this puts the value of the element into this variable
+    const esemeny1Value = esemeny1Element.value; // this puts the value of the element into this variable
     const evszam1Value = evszam1Element.value; // this puts the value of the element into this variable
-    const esemeny2value = esemeny2Element.value == "" ? undefined : esemeny2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
+    const esemeny2Value = esemeny2Element.value == "" ? undefined : esemeny2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
     const evszam2Value = evszam2Element.value == "" ? undefined : evszam2Element.value; // this puts the value of the element into this variable, unless it is empty, in which case it becomes undefined
 
-    const newElement = { // we make new element
-        uralkodo: urNevValue, // the new element's value here becometh the called variable
-        esemeny: esemeny1value, // the new element's value here becometh the called variable
-        evszam: evszam1Value // the new element's value here becometh the called variable
-    }
-    array.push(newElement); // we push this to the array
-    if (esemeny2value != undefined || evszam2Value != undefined) {
-        const newElement2 = { // we make new element
-            esemeny: esemeny2value, // the new element's value here becometh the called variable
-            evszam: evszam2Value // the new element's value here becometh the called variable
+    if (urNevValue == ''){ // checks if the variable is empty
+        const parent = urNevElement.parentElement;
+        const error = parent.querySelector('.error');
+        if (error != undefined){
+            error.innerHTML = 'Ez a mező kötelező!';
         }
-        array.push(newElement2); // we push this to the array
+        valid = false; // sets the boolean to false
     }
-    tbody.innerHTML = ''; // we delete the contents of the previous tbodeehhh
-    renderMenu() // this re-renders the table
+    if (esemeny1Value == ''){ // checks if the variable is empty
+        const parent = esemeny1Element.parentElement;
+        const error = parent.querySelector('.error');
+        if (error != undefined){
+            error.innerHTML = 'Ez a mező kötelező!';
+        }
+        valid = false; // sets the boolean to false
+    }
+    if (evszam1Value == ''){ // checks if the variable is empty
+        const parent = evszam1Element.parentElement;
+        const error = parent.querySelector('.error');
+        if (error != undefined){
+            error.innerHTML = 'Ez a mező kötelező!';
+        }
+        valid = false; // sets the boolean to false
+    }
+    if (esemeny2Value != undefined && evszam2Value == undefined || esemeny2Value == undefined && evszam2Value != undefined){
+        const parentEsemeny = esemeny2Element.parentElement;
+        const parentEvszam = evszam2Element.parentElement;
+        const errorEsemeny = parentEsemeny.querySelector('.error');
+        const errorEvszam = parentEvszam.querySelector('.error');
+        if (errorEsemeny != undefined){
+            errorEsemeny.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!';
+        }
+        if (errorEvszam != undefined){
+            errorEvszam.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!';
+        }
+        valid = false;
+    }
+    if (valid){
+        const newElement = { // we make new element
+            uralkodo: urNevValue, // the new element's value here becometh the called variable
+            esemeny: esemeny1Value, // the new element's value here becometh the called variable
+            evszam: evszam1Value // the new element's value here becometh the called variable
+        }   
+        array.push(newElement); // we push this to the array
+        if (esemeny2Value != undefined || evszam2Value != undefined) {
+            const newElement2 = { // we make new element
+                esemeny: esemeny2Value, // the new element's value here becometh the called variable
+                evszam: evszam2Value // the new element's value here becometh the called variable
+            }
+            array.push(newElement2); // we push this to the array
+        }
+        tbody.innerHTML = ''; // we delete the contents of the previous tbodeehhh
+        renderMenu(); // this re-renders the table
+        thisForm.reset(); // this removes everything from the form
+    }
+    
 })
