@@ -119,17 +119,7 @@ function validateField(inputElement){ // creates the function
 
 function validateFieldEitherOr(inputElement1, inputElement2) { // creates the function
     let valid = true; // creates this boolean
-    if (inputElement1.value != '' && inputElement2.value == '' || inputElement1.value == '' && inputElement2.value != ''){ // checks if either one is empty but the other isnt
-        const parent1 = inputElement1.parentElement; // puts the parent element into the variable
-        const parent2 = inputElement2.parentElement; // puts the parent element into the variable
-        const error1 = parent1.querySelector('.error'); // we find the first thing with the error group and put it in the variable
-        const error2 = parent2.querySelector('.error'); // we find the first thing with the error group and put it in the variable
-        if (error1 != undefined){ // if said div is empty
-            error1.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!'; // we put this text in it
-        }
-        if (error2 != undefined){ // if said div is empty
-            error2.innerHTML = 'Mind két mező kötelező, ha 2 sort akar!'; // we put this text in it
-        }
+    if (validateField(inputElement1) && !validateField(inputElement1) || !validateField(inputElement1) && validateField(inputElement1)){ // checks if either one is empty but the other isnt
         valid = false; // sets the boolean to false
     }
     return valid; // returns this boolean
