@@ -44,6 +44,7 @@ const form = document.getElementById('form'); // this puts the thing that has th
 const table = document.createElement('table'); // creates the table in the const table variable
 document.body.appendChild(table); // appends said table to the body
 
+// it was already done like 9 billion commits ago
 function renderMenu(){ //this is the function
     // define the table structure with a colgroup
     const colgroup = document.createElement('colgroup'); // creates a colgroup in the const colgroup variable
