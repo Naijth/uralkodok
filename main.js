@@ -134,6 +134,23 @@ function validateFieldEitherOr(inputElement1, inputElement2) { // creates the fu
     return valid; // returns this boolean
 }
 
+function validate(v1, v2, v3, v4, v5){ // this is useless but the teacher is making me do it
+    let valid = true
+    if (!validateField(v1)){ // runs this function with the element in it
+        valid = false; // sets the boolean to false
+    }
+    if (!validateField(v2)){ // runs this function with the element in it
+        valid = false; // sets the boolean to false
+    }
+    if (!validateField(v3)){ // runs this function with the element in it
+        valid = false; // sets the boolean to false
+    }
+    if (!validateFieldEitherOr(v4, v5)){ // runs this function with the elements in it
+        valid = false; // sets the boolean to false
+    }
+    return valid;
+}
+
 form.addEventListener('submit', function(e){ // checks if anyone pressed the funny button
     e.preventDefault(); // this prevents the site from running it's default function upon pressing the shiny button
     const urNevElement = document.getElementById('uralkodo_nev') // this puts the htmlElement with the corresponding id into this variable
@@ -148,20 +165,7 @@ form.addEventListener('submit', function(e){ // checks if anyone pressed the fun
         error.innerHTML = ''; // this sets their content to a blank/deletes it
     }
 
-    let valid = true; // this creates the valid boolean
-
-    if (!validateField(urNevElement)){ // runs this function with the element in it
-        valid = false; // sets the boolean to false
-    }
-    if (!validateField(esemeny1Element)){ // runs this function with the element in it
-        valid = false; // sets the boolean to false
-    }
-    if (!validateField(evszam1Element)){ // runs this function with the element in it
-        valid = false; // sets the boolean to false
-    }
-    if (!validateFieldEitherOr(esemeny2Element, evszam2Element)){ // runs this function with the elements in it
-        valid = false; // sets the boolean to false
-    }
+    let valid = validate(urNevElement, esemeny1Element, evszam1Element, esemeny2Element, evszam2Element); // this is literally useless
 
     if (valid){ //checks if the boolean is true
         const urNevValue = urNevElement.value; // this puts the value of the element into this variable
